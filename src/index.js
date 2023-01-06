@@ -8,7 +8,8 @@ import App from './App';
 import { CartProvider } from './contexts/cart.context';
 
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { store, persistor } from './store/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import './index.scss';
 
@@ -17,6 +18,7 @@ const rootElement = document.getElementById('root');
 render(
   <React.StrictMode>
     <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
         {/* <UserProvider> */}
           {/* <CategoriesProvider> */}
@@ -26,6 +28,7 @@ render(
           {/* </CategoriesProvider> */}
         {/* </UserProvider> */}
       </BrowserRouter>
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   rootElement
