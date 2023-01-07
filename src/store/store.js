@@ -27,6 +27,7 @@ const composedEnhancers = compose(applyMiddleware(...middleWares));
 
 // export const store = createStore(rootReducer, undefined, composedEnhancers);
 
+//persist store
 const persistConfig = {
   key: 'root',
   storage,
